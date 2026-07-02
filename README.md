@@ -1,25 +1,37 @@
 # ETL Python SQLite Pipeline
 
-## What Problem Does This Solve?
-Analysts often receive raw operational files that must be cleaned before SQL analysis.
+> A reproducible Python-to-SQLite pipeline for synthetic support-operations data.
 
-## Why It Matters For Business
-A small ETL pipeline proves practical data handling: extract, validate, transform, load, and query.
+![Demo](assets/demo.svg)
+
+## Recruiter Snapshot
+
+| 30-second question | Answer |
+| --- | --- |
+| Problem | Operational reports are only useful after records are deduplicated, typed, validated, loaded, and made queryable. |
+| My role | I built the extract-transform-load flow, added SQL summaries, and documented it as a reviewer-friendly portfolio artifact. |
+| Result | The script loads 180 clean synthetic rows into SQLite and prints CSAT plus resolution-rate summaries by region/channel. |
+| Portfolio signal | Shows data engineering basics that complement WFM/RTA experience: clean data in, queryable operations insight out. |
+| Data policy | All records are synthetic and safe for a public portfolio. |
 
 ## What I Built
-A Python/pandas ETL pipeline that loads synthetic operations data into SQLite and runs summary SQL queries.
 
-## Tools Used
-Python, pandas, SQLite, SQL, data quality checks
+- CSV extraction from a synthetic operations batch.
+- Deduplication, type coercion, basic validation, and derived resolution rate.
+- SQLite output plus reusable SQL queries.
 
-## Key Skills Demonstrated
-- Business problem framing.
-- Synthetic-data design for public portfolio use.
-- Reproducible Python workflow.
-- Clear documentation for recruiters and technical reviewers.
-- Privacy-safe storytelling: no employer, client, student, credential, medical, family, email, or real job-search data.
+## Evidence In This Repo
 
-## How To Run
+- `src/etl_pipeline.py` runs the pipeline end to end.
+- `src/queries.sql` documents the SQL review queries.
+- `data/sample_synthetic_data.csv` provides 180 public-safe rows.
+
+## Tools And Concepts
+
+`Python`, `pandas`, `SQLite`, `SQL`, `ETL`, `operations analytics`
+
+## Run Locally
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -27,15 +39,16 @@ python -m pip install -r requirements.txt
 python src/etl_pipeline.py
 ```
 
-## Screenshots Placeholder
-Add one screenshot here before publishing:
-- Suggested capture: Terminal output showing 180 rows loaded and SQL summary.
+## Limitations
 
-## What A Recruiter Should Notice
-Reproducible ETL pipeline using synthetic operations CSV data, pandas transformations, SQLite loading, and SQL summaries.
+The pipeline is local and deterministic. It does not include orchestration, lineage, access control, or production observability.
 
-## What I Learned
-This project helped me practice turning an operations or AI-evaluation idea into a small, executable artifact with clean documentation, measurable output, and safe synthetic data.
+## Next Iteration
+
+- Add pytest coverage for transform rules.
+- Add schema checks for expected columns and ranges.
+- Add an optional dashboard over the SQLite output.
 
 ## Data Privacy
-All sample data is synthetic. This repository must not include private data from Teleperformance, Foundever, UAO, clients, professors, classmates, emails, credentials, IDs, health records, family records, or real job-search records.
+
+Every record, identifier, organization, person, scenario, and result in this project is synthetic unless explicitly marked otherwise. No employer, client, university, colleague, customer, credential, private path, or sensitive personal record is used.
